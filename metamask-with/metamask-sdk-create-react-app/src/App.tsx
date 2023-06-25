@@ -3,6 +3,8 @@ import { useListen } from './hooks/useListen'
 import { type MetaMaskInpageProvider } from '@metamask/providers'
 import { MetaMaskProvider, useMetaMask } from './hooks/useMetaMask'
 import { SdkLayout } from './components/SdkProvider'
+import { Header } from 'antd/es/layout/layout'
+import { Button } from 'antd'
 
 export default function App() {
   return (
@@ -57,6 +59,12 @@ function Explainer() {
   }
 
   return (
+    <>
+    <Header style={{display:'flex',justifyContent:'flex-end',alignItems:'center'}}>
+      <Button onClick={handleConnect}>
+        <img style={{width:'100%',height:'100%'}} src="/metamask-logo.svg" alt="metamask" />
+      </Button>
+    </Header>
     <ExplainerLayout
       title="MetaMask SDK with Create React App"
       caption={
@@ -115,5 +123,6 @@ export const instantiateSdk = () => {
         <code>eth_requestAccounts</code>.
       </p>
     </ExplainerLayout>
+    </>
   )
 }
